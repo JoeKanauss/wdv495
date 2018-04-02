@@ -1,0 +1,296 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+	<title>Chart.js - Data Visualization</title>
+	
+	<style>
+		body{
+			text-align: center;
+			font-family: sans-serif;
+			background-color: #d9d9d9;
+		}
+		
+		h1{
+			font-family: "Gloria Hallelujah", sans-serif;
+			font-size: 3em;
+			text-decoration: underline;
+		}
+		
+		a{
+			border: 1px solid black;
+			color: black;
+			text-decoration: none;
+			padding: 5px;
+		}
+		
+		a:hover{
+			background-color: black;
+			color: white;
+		}
+		
+		#type{
+			width: 75%;
+			margin: auto;
+			margin-top: 2%;
+			padding: 1%;
+			background-color: white;
+		}
+		
+		#charts{
+			background-color: white;
+			padding: 1%;
+		}
+		
+		#poll-chart{
+			width: 48%;
+			float: left;
+			cursor: pointer;
+		}
+		
+		#budget-chart{
+			width: 50%;
+			float: left;
+		}
+		
+		#clear{
+			clear: both;
+		}
+		
+		
+		
+	</style>
+</head>
+<body>
+		
+	<h1>Chart.js - Data Visualization</h1>
+	
+	<div id="charts">
+		<div id="poll-chart">
+			<canvas id="poll"></canvas>
+		</div>
+	
+		<div id="budget-chart">
+			<canvas id="budget"></canvas>
+		</div>
+		
+		<div id="clear"></div>
+	</div>
+	
+	<div id="type">
+		<h2>Two charts created for data visualization of horror-film-related data using Chart.js</h2>
+		<p><a href="http://www.imdb.com/poll/EfSfinPtdqs/results" target="_blank">IMDb Poll</a></p>
+		<p><a href="pollChart.html" target="_blank">Poll Chart</a> <a href="budgetChart.html" target="_blank">Budget Chart</a></p>
+		<p>Budget numbers from Wikipedia entries</p>
+		<p>***** No budget information could be found for Suspiria (1977) *****</p>
+	</div>
+
+	
+
+<script>
+		var ctx = document.getElementById('poll');
+		
+		var chart = new Chart(ctx, {
+			
+			//type of chart
+			type: 'horizontalBar',
+			
+			//data
+			data: {
+				labels: ["The Shining (1980)", 
+							"The Exorcist (1973)", 
+							"Alien (1979)", 
+							"Halloween (1978)", 
+							"The Thing (1982)", 
+							"Psycho (1960)",
+							"The Texas Chain Saw Massacre (1974)",
+							"Scream (1996)",
+							"A Nightmare on Elm Street (1984)",
+							"The Blair Witch Projects (1999)",
+							"Jaws (1975)",
+							"The Evil Dead (1981)",
+							"Rosemary's Baby (1968)",
+							"Cannibal Holocaust (1980)",
+							"Suspiria (1977)",
+							"Dawn of the Dead (1978)",
+							"Evil Dead II (1987)",
+							"Hellraiser (1987)",
+							"Night of the Living Dead (1968)",
+							"The Omen (1976)",
+							"Carrie (1976)",
+							"The Wicker Man (1973)",
+							"An American Werewolf in London (1981)",
+							"The Haunting (1963)",
+							"Black Christmas (1974)",
+							"Frankenstein (1931)",
+							"Carnival of Souls (1962)",
+							"Freaks (1932)",
+							"Bride of Frankenstein (1935)",
+							"Day of the Dead (1985)"],
+				datasets: [{
+					label: "IMDb Top Horror Films Poll",
+					backgroundColor: ["#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000"],
+					borderColor: "",
+					data: [1695,
+							1269,
+							879,
+							796,
+							773,
+							629,
+							608,
+							418,
+							413,
+							403,
+							364,
+							325,
+							273,
+							271,
+							257,
+							241,
+							205,
+							195,
+							185,
+							176,
+							163,
+							116,
+							111,
+							104,
+							94,
+							85,
+							72,
+							71,
+							52,
+							43],
+				}]
+			},
+			
+			//configuration options
+			options: {
+					scales:{
+						xAxes:[{
+							scaleLabel: {
+								display: true,
+								labelString: "Votes (out of 11,286)"
+							}
+						}]
+					}
+			}
+		
+		});
+		
+		var budget = document.getElementById('budget');
+		
+		var budgetChart = new Chart(budget, {
+			type: "line",
+			data: {
+					labels: ["The Shining (1980)", 
+							"The Exorcist (1973)", 
+							"Alien (1979)", 
+							"Halloween (1978)", 
+							"The Thing (1982)", 
+							"Psycho (1960)",
+							"The Texas Chain Saw Massacre (1974)",
+							"Scream (1996)",
+							"A Nightmare on Elm Street (1984)",
+							"The Blair Witch Project (1999)",
+							"Jaws (1975)",
+							"The Evil Dead (1981)",
+							"Rosemary's Baby (1968)",
+							"Cannibal Holocaust (1980)",
+							"***** Suspiria (1977) *****",
+							"Dawn of the Dead (1978)",
+							"Evil Dead II (1987)",
+							"Hellraiser (1987)",
+							"Night of the Living Dead (1968)",
+							"The Omen (1976)",
+							"Carrie (1976)",
+							"The Wicker Man (1973)",
+							"An American Werewolf in London (1981)",
+							"The Haunting (1963)",
+							"Black Christmas (1974)",
+							"Frankenstein (1931)",
+							"Carnival of Souls (1962)",
+							"Freaks (1932)",
+							"Bride of Frankenstein (1935)",
+							"Day of the Dead (1985)"],
+				
+				datasets: [{
+						label: "IMDb Top Horror Films Production Budget",
+						backgroundColor: "#816da3",
+						
+						borderColor: "",
+						data: [19,
+								12,
+								11,
+								0.325,
+								15,
+								0.8,
+								0.3,
+								15,
+								1.8,
+								0.06,
+								9,
+								0.4,
+								3.2,
+								0.337,
+								0,
+								1.5,
+								3.6,
+								1,
+								0.114,
+								2.8,
+								1.8,
+								0.7,
+								10,
+								1.05,
+								0.620,
+								0.260,
+								0.033,
+								0.350,
+								0.397,
+								3.5],
+								pointBackgroundColor: "black"
+						}],
+							
+			},
+			options:{elements:{
+								line:{
+									tension: 0
+								}
+					},
+					scales:{
+						yAxes:[{
+							scaleLabel: {
+								display: true,
+								labelString: "Estimated Budget in Millions"
+							}
+						}],
+						xAxes:[{
+							ticks:{
+								autoSkip: false
+							}	
+						}]
+					}
+			}
+		});
+		
+	</script>
+	
+	
+</body>
+</html>

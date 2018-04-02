@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	
+	<title>Chart.js - Poll Chart</title>
+</head>
+<body>
+	<canvas id="poll"></canvas>
+</body>
+	<script>
+		var ctx = document.getElementById('poll');
+		
+		var chart = new Chart(ctx, {
+			
+			//type of chart
+			type: 'horizontalBar',
+			
+			//data
+			data: {
+				labels: ["The Shining (1980)", 
+							"The Exorcist (1973)", 
+							"Alien (1979)", 
+							"Halloween (1978)", 
+							"The Thing (1982)", 
+							"Psycho (1960)",
+							"The Texas Chain Saw Massacre (1974)",
+							"Scream (1996)",
+							"A Nightmare on Elm Street (1984)",
+							"The Blair Witch Projects (1999)",
+							"Jaws (1975)",
+							"The Evil Dead (1981)",
+							"Rosemary's Baby (1968)",
+							"Cannibal Holocaust (1980)",
+							"Suspiria (1977)",
+							"Dawn of the Dead (1978)",
+							"Evil Dead II (1987)",
+							"Hellraiser (1987)",
+							"Night of the Living Dead (1968)",
+							"The Omen (1976)",
+							"Carrie (1976)",
+							"The Wicker Man (1973)",
+							"An American Werewolf in London (1981)",
+							"The Haunting (1963)",
+							"Black Christmas (1974)",
+							"Frankenstein (1931)",
+							"Carnival of Souls (1962)",
+							"Freaks (1932)",
+							"Bride of Frankenstein (1935)",
+							"Day of the Dead (1985)"],
+				datasets: [{
+					label: "IMDb Top Horror Films Poll",
+					backgroundColor: ["#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000",
+										"#4e3012", "#ede295", "#ff8a13", "#ffdb54", "#000000"],
+					borderColor: "",
+					data: [1695,
+							1269,
+							879,
+							796,
+							773,
+							629,
+							608,
+							418,
+							413,
+							403,
+							364,
+							325,
+							273,
+							271,
+							257,
+							241,
+							205,
+							195,
+							185,
+							176,
+							163,
+							116,
+							111,
+							104,
+							94,
+							85,
+							72,
+							71,
+							52,
+							43],
+				}]
+			},
+			
+			//configuration options
+			options: {
+					scales:{
+						xAxes:[{
+							scaleLabel: {
+								display: true,
+								labelString: "Votes (out of 11,286)"
+							}
+						}]
+					}
+			}
+		
+		});
+	</script>
+</html>

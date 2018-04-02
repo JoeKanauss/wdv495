@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	
+	<title>Chart.js - Budget Chart</title>
+</head>
+<body>
+	<canvas id="budget"></canvas>
+	<p>***** No budget information could be found for Suspiria (1977)*****</p>
+</body>
+	<script>
+		var budget = document.getElementById('budget');
+		
+		var budgetChart = new Chart(budget, {
+			type: "line",
+			data: {
+					labels: ["The Shining (1980)", 
+							"The Exorcist (1973)", 
+							"Alien (1979)", 
+							"Halloween (1978)", 
+							"The Thing (1982)", 
+							"Psycho (1960)",
+							"The Texas Chain Saw Massacre (1974)",
+							"Scream (1996)",
+							"A Nightmare on Elm Street (1984)",
+							"The Blair Witch Project (1999)",
+							"Jaws (1975)",
+							"The Evil Dead (1981)",
+							"Rosemary's Baby (1968)",
+							"Cannibal Holocaust (1980)",
+							"***** Suspiria (1977) *****",
+							"Dawn of the Dead (1978)",
+							"Evil Dead II (1987)",
+							"Hellraiser (1987)",
+							"Night of the Living Dead (1968)",
+							"The Omen (1976)",
+							"Carrie (1976)",
+							"The Wicker Man (1973)",
+							"An American Werewolf in London (1981)",
+							"The Haunting (1963)",
+							"Black Christmas (1974)",
+							"Frankenstein (1931)",
+							"Carnival of Souls (1962)",
+							"Freaks (1932)",
+							"Bride of Frankenstein (1935)",
+							"Day of the Dead (1985)"],
+				
+				datasets: [{
+						label: "IMDb Top Horror Films Production Budget",
+						backgroundColor: "#816da3",
+						
+						borderColor: "",
+						data: [19,
+								12,
+								11,
+								0.325,
+								15,
+								0.8,
+								0.3,
+								15,
+								1.8,
+								0.06,
+								9,
+								0.4,
+								3.2,
+								0.337,
+								0,
+								1.5,
+								3.6,
+								1,
+								0.114,
+								2.8,
+								1.8,
+								0.7,
+								10,
+								1.05,
+								0.620,
+								0.260,
+								0.033,
+								0.350,
+								0.397,
+								3.5],
+								pointBackgroundColor: "black"
+						}]
+			},
+			options:{elements:{
+								line:{
+									tension: 0
+								}
+					},
+					scales:{
+						yAxes:[{
+							scaleLabel: {
+								display: true,
+								labelString: "Estimated Budget in Millions"
+							}
+						}],
+						xAxes:[{
+							ticks:{
+								autoSkip: false
+							}	
+						}]
+					}
+			}
+		});
+	</script>
+</html>
